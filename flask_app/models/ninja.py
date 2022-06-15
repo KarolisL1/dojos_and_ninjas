@@ -12,7 +12,6 @@ class Ninja():
 
     @classmethod
     def save_ninja(cls, data ):
-        query = "INSERT INTO ninjas ( dojo_id, first_name , last_name, age, created_at, updated_at ) VALUES ( %(dojo_id)s, %(fname)s, %(lname)s, %(age)s , NOW() , NOW() );"
+        query = "INSERT INTO ninjas ( dojo_id, first_name, last_name, age, created_at, updated_at ) VALUES ( %(dojo_id)s, %(fname)s, %(lname)s, %(age)s , NOW() , NOW() );"
         # data is a dictionary that will be passed into the save method from server.py
-
         return connectToMySQL('dojos_and_ninjas_schema').query_db( query, data )

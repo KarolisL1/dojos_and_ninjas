@@ -25,13 +25,11 @@ class Dojo():
     def save(cls, data ):
         query = "INSERT INTO dojos ( name , created_at, updated_at ) VALUES ( %(name)s , NOW() , NOW() );"
         # data is a dictionary that will be passed into the save method from server.py
-
         return connectToMySQL('dojos_and_ninjas_schema').query_db( query, data )
 
     @classmethod
     def get_one_dojo(cls, data):
         query = "SELECT * FROM dojos LEFT JOIN ninjas ON ninjas.dojo_id = dojos.id WHERE dojos.id = %(dojo_id)s; "
-
         results = connectToMySQL('dojos_and_ninjas_schema').query_db( query, data )
 
         dojo = Dojo(results[0])
