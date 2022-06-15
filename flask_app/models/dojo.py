@@ -34,7 +34,6 @@ class Dojo():
 
         dojo = Dojo(results[0])
         for result in results:
-            # print(result)
             ninja_data = {
                 'id': result['ninjas.id'],
                 'first_name': result['first_name'],
